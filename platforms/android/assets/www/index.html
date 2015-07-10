@@ -14,13 +14,13 @@
 
     map = plugin.google.maps.Map.getMap(div,{
     'camera': {
-      'latLng': GOOGLE
+      'latLng': GOOGLE,
       'zoom': 17
     }
   });
     // Wait until the map is ready status.
-    
     map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+    
     }, false);
 
     function onMapReady() {
@@ -29,13 +29,8 @@
       'title': "Hello GoogleMap for Cordova!"
       }, function(marker) {
       marker.showInfoWindow();
-    
-    var button = document.getElementById("button");
-    button.addEventListener("click", onBtnClicked, false);
-    }
-    function onBtnClicked() {
-    map.showDialog();
-    }
+    });
+  }
     </script>
   </head>
   <body>
