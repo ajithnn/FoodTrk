@@ -17,12 +17,12 @@
     <feature name="Geocoder">
         <param name="android-package" value="plugin.google.maps.MyGeocoder" />
     </feature>
-    <name>FoodKart</name>
+    <name>FoodMe</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        App to find nearby Food Trucks and their Menus.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="ajithnn20@gmail.com" href="mailto:ajithnn20@gmail.com">
+        Flavor Labs
     </author>
     <content src="index.html" />
     <access origin="*" />

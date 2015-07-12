@@ -11,17 +11,19 @@ document.addEventListener("deviceready", function() {
                 var myLoc;
                 map.getMyLocation(function(location) {
                         myLoc = location;
-                        alert(location.latLng.lat + 1);
-                        const Lat_1 = new plugin.google.maps.LatLng(location.latLng.lat + 1, location.latLng.lng + 1);
-                        const Lat_2 = new plugin.google.maps.LatLng(location.latLng.lat + 2, location.latLng.lng + 1);
-                        var msg = ["Current your location:\n",
-                            "latitude:" + location.latLng.lat,
-                            "longitude:" + location.latLng.lng
-                            ];
+                        const Lat_1 = new plugin.google.maps.LatLng(location.latLng.lat + 0.001, location.latLng.lng + 0.0001);
+                        const Lat_2 = new plugin.google.maps.LatLng(location.latLng.lat - 0.002, location.latLng.lng - 0.0001);
 
                             map.addMarker({
                                 'position': location.latLng,
-                                'title': msg
+                                'icon': 'green',
+                                'title': "You are here",
+                                'styles': {
+                                    'text-align': 'center',
+                                    'font-style': 'italic',
+                                    'font-weight': 'bold',
+                                    'color': 'green'
+                                }
                             }, function(marker) {
                                 markers.push(marker);
                                 marker.showInfoWindow();
@@ -29,15 +31,16 @@ document.addEventListener("deviceready", function() {
 
                             map.animateCamera({
                                 'target': location.latLng,
-                                'tilt': 60,
-                                'zoom': 18,
+                                'zoom': 15,
                                 'bearing': 140
                             });
 
                             map.addMarker({
                                 'position': Lat_1,
+                                'icon': 'http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/32/truck-icon.png',
                                 'title': "Truck 1",
                                 'snippet': 'Kobri',
+                                'animation': plugin.google.maps.Animation.DROP,
                                 'styles': {
                                     'text-align': 'center',
                                     'font-style': 'italic',
@@ -53,8 +56,10 @@ document.addEventListener("deviceready", function() {
 
                             map.addMarker({
                                 'position': Lat_2,
+                                'icon': 'http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/32/truck-icon.png',
                                 'title': "Truck 2",
                                 'snippet': 'FlavorLabs',
+                                'animation': plugin.google.maps.Animation.DROP,
                                 'styles': {
                                     'text-align': 'center',
                                     'font-style': 'italic',
